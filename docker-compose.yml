@@ -1,0 +1,12 @@
+services:
+  postgres:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: regulaflow
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: local_dev_password
+    ports: ["5432:5432"]
+    volumes: [regulaflow_pgdata:/var/lib/postgresql/data]
+volumes:
+  regulaflow_pgdata:
